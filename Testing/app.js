@@ -1,13 +1,27 @@
 const users = [
-    {name:"Shubham", age:28},
-    {name:"Akshay", age :30},
-    {name:"Dikshit", age :50},
-    {name:"Jhon", age :45},
-]
+  {
+    name: "Simran",
+    age: 30,
+  },
+  {
+    name: "Akshay",
+    age: 28,
+  },
+  {
+    name: "Sachin",
+    age: 50,
+  },
+  {
+    name: "Elon",
+    age: 8,
+  },
+];
 
-function sortingByAge(){
-    const data = users.sort((a, b) => a.age - b.age)
-    return data;
+function sortingByAge() {
+  const data = users.sort((a, b) => a.age - b.age);
+  return data;
 }
 
-module.exports = sortingByAge
+console.log(sortingByAge());
+
+module.exports = sortingByAge;
