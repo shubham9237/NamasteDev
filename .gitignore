@@ -9,7 +9,6 @@
 
 # Ignore build output
 **/dist/
-**/build/
 **/.next/
 **/.nuxt/
 **/.svelte-kit/
