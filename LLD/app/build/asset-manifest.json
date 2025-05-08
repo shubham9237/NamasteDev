@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/NFSD_Code/static/css/main.2a42cd2e.css",
-    "main.js": "/NFSD_Code/static/js/main.3fa6513f.js",
-    "static/js/592.918a8bb2.chunk.js": "/NFSD_Code/static/js/592.918a8bb2.chunk.js",
-    "index.html": "/NFSD_Code/index.html",
-    "main.2a42cd2e.css.map": "/NFSD_Code/static/css/main.2a42cd2e.css.map",
-    "main.3fa6513f.js.map": "/NFSD_Code/static/js/main.3fa6513f.js.map",
-    "592.918a8bb2.chunk.js.map": "/NFSD_Code/static/js/592.918a8bb2.chunk.js.map"
+    "main.css": "/NamasteDev/static/css/main.2a42cd2e.css",
+    "main.js": "/NamasteDev/static/js/main.fa6334c1.js",
+    "static/js/592.918a8bb2.chunk.js": "/NamasteDev/static/js/592.918a8bb2.chunk.js",
+    "index.html": "/NamasteDev/index.html",
+    "main.2a42cd2e.css.map": "/NamasteDev/static/css/main.2a42cd2e.css.map",
+    "main.fa6334c1.js.map": "/NamasteDev/static/js/main.fa6334c1.js.map",
+    "592.918a8bb2.chunk.js.map": "/NamasteDev/static/js/592.918a8bb2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2a42cd2e.css",
-    "static/js/main.3fa6513f.js"
+    "static/js/main.fa6334c1.js"
   ]
 }
