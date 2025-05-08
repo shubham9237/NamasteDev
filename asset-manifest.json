@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NamasteDev/static/css/main.2a42cd2e.css",
+    "main.js": "/NamasteDev/static/js/main.fa6334c1.js",
+    "static/js/592.918a8bb2.chunk.js": "/NamasteDev/static/js/592.918a8bb2.chunk.js",
+    "index.html": "/NamasteDev/index.html",
+    "main.2a42cd2e.css.map": "/NamasteDev/static/css/main.2a42cd2e.css.map",
+    "main.fa6334c1.js.map": "/NamasteDev/static/js/main.fa6334c1.js.map",
+    "592.918a8bb2.chunk.js.map": "/NamasteDev/static/js/592.918a8bb2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a42cd2e.css",
+    "static/js/main.fa6334c1.js"
+  ]
+}
