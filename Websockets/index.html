@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>
+        Heading from websockets
+    </h1>
+    <form id="form">
+        <input autocomplete="off" type="text" id="input" name="input">
+        <input type="submit" type="submit" value="Send">
+    </form>
+    <ul id="message"></ul>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io('http://localhost:5011')
+    const form    = document.getElementById("form")
+    const input   = document.getElementById("input")
+    const messages= document.getElementById("message")   
+
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if(input.value){
+            console.log(input.value);
+            socket.emit("chat message", input.value)
+            input.value = '';
+        }
+    })
+
+    socket.on('chat message', (msg)=>{
+        const item = document.createElement("li");
+        item.textContent = msg;
+        messages.appendChild(item)
+    })
+
+</script>
+</html>

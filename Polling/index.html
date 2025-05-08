@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Hello added it</h1>
+    <div id="dummy">
+
+    </div>
+</body>
+<script>
+
+    async function getDataLongPolling(lastData){
+        try {
+            const response = await fetch(`/getDataLongPolling?lastData=${lastData}`);
+            // data which is travelled in the network is a serialised data so we need to deserialise it
+            const result = await response.json();
+            document.getElementById("dummy").innerHTML = result.longPollingDatadata
+            getDataLongPolling(result.longPollingDatadata)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function getDataShortPolling(){
+        try {
+            const response = await fetch("/getDataShortPolling");
+            // data which is travelled in the network is a serialised data so we need to deserialise it
+            const result = await response.json();
+            document.getElementById("dummy").innerHTML = result.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // let intervalId;
+    // function shortPolling(){
+    //     intervalId = setInterval(()=>{
+    //         getDataShortPolling();
+    //     }, 5000)
+    // }
+    // shortPolling();
+
+    //on some navigation or user action or any target condition we must clear our interval
+
+    // clearInterval(intervalId)
+    getDataLongPolling()
+</script>
+</html>

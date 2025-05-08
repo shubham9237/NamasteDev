@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Server side events</h1>
+    <div id="sse-data"></div>
+    
+    <script>
+        // setup connection
+        const eventSource = new EventSource("/sse");
+        eventSource.onmessage = (event) => {
+            console.log(event.data);
+            const sseDataRef = document.getElementById("sse-data");
+            sseDataRef.innerHTML += `<p>${event.data}</p>`;
+        }
+    </script>
+</body>
+</html>
